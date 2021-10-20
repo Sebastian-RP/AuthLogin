@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AuthLogin</string>
+
+    //nombre de los botones
+    <string name="btn_iniciar_pantalla">Iniciar Sesion</string>
+    <string name="btn_registrar_pantalla">Registrarse</string>
+
+    <string name="btn_iniciar_sesion">Iniciar Sesion</string>
+    <string name="registrarse">Registrarse</string>
+
+    //13:50
+    //https://www.youtube.com/watch?v=rYhtd1Kpqhw
+</resources>
