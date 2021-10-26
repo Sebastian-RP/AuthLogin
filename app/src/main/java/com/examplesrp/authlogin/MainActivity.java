@@ -26,5 +26,3 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-//13:50
-//https://www.youtube.com/watch?v=rYhtd1Kpqhw

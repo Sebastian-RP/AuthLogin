@@ -34,7 +34,7 @@
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/contrasenaConfirmacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,6 +46,7 @@
             android:id="@+id/iniciarSesionBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="registrarUsuario"
             android:text="@string/registrarse" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
