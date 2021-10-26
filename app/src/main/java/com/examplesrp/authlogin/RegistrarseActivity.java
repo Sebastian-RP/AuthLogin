@@ -49,7 +49,7 @@ public class RegistrarseActivity extends AppCompatActivity {
 
         if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
 
-            mAuth.signInWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
+            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
