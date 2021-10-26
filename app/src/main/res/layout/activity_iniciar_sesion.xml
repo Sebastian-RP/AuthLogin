@@ -27,16 +27,17 @@
 
         <EditText
             android:id="@+id/contrasena"
-            android:layout_width="match_parent"
             android:layout_height="61dp"
             android:ems="10"
             android:hint="contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_width="match_parent" />
 
         <Button
             android:id="@+id/iniciarSesionBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="iniciarSesion"
             android:text="@string/btn_iniciar_sesion" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

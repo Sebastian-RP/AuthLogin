@@ -47,7 +47,7 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     public void registrarUsuario(View view){
 
-        if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText())){
+        if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
 
             mAuth.signInWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
