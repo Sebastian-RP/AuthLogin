@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="email"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/contrasena"
@@ -39,5 +39,6 @@
             android:layout_height="wrap_content"
             android:onClick="iniciarSesion"
             android:text="@string/btn_iniciar_sesion" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

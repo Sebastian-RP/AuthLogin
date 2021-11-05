@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="email"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/contrasena"

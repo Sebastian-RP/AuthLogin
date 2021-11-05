@@ -8,6 +8,8 @@
     <string name="btn_iniciar_sesion">Iniciar Sesion</string>
     <string name="registrarse">Registrarse</string>
 
-    //40:00
-    //https://www.youtube.com/watch?v=rYhtd1Kpqhw
+    // https://www.youtube.com/watch?v=rYhtd1Kpqhw
+    //verde= #0DBA8A
+    //azul = #2F2842
+    //gris = #2F6E6E6E
 </resources>

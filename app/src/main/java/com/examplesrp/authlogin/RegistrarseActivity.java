@@ -49,16 +49,16 @@ public class RegistrarseActivity extends AppCompatActivity {
 
         if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
 
-            mAuth.signInWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
+            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
-                                Toast.makeText(getApplicationContext(), "Usuario creado.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Usuario ingrese los siguientes datos.", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent i = new Intent(getApplicationContext(), enterPersonalData.class);
                                 startActivity(i);
                                 //updateUI(user);
                             } else {
