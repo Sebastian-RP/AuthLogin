@@ -1,5 +1,6 @@
 package com.examplesrp.authlogin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -13,11 +14,17 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.examplesrp.authlogin.modelo.RegisterDataUser;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,8 +39,10 @@ public class enterPersonalData extends AppCompatActivity {
     String strDate = "00/00/00";
     String nameUser, namePlace, sexSelected = "";
 
-    RadioButton radioMale, radioFemale; //botonredondo de sexo
-
+    private FirebaseDatabase database;
+    private DatabaseReference myRef;
+    FirebaseAuth auth;
+    RadioButton radioMale, radioFemale, radioOther; //botonredondo de sexo
 
     private int dia, mes, anio;
     Button enterPersonalData;
@@ -43,6 +52,14 @@ public class enterPersonalData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_personal_data);
 
+        // Write a message to the database
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Register_users");
+        auth = FirebaseAuth.getInstance();
+
+        String correo = getIntent().getStringExtra("keyCorreo");//recibimos datos de RegistrarseActivity
+        String contrasena = getIntent().getStringExtra("keyContrasena");
+
         addNamePersonalData = findViewById(R.id.addNamePersonalData);
         addPlacePersonalData = findViewById(R.id.addPlacePersonalData);
         selefecha = findViewById(R.id.btn_selefecha);
@@ -50,6 +67,7 @@ public class enterPersonalData extends AppCompatActivity {
 
         radioFemale = (RadioButton) findViewById(R.id.radioFemale);
         radioMale = (RadioButton) findViewById(R.id.radioMale);
+        radioOther = (RadioButton) findViewById(R.id.radioOther);
 
         enterPersonalData = (Button) findViewById(R.id.enterPersonalData);
 
@@ -76,7 +94,7 @@ public class enterPersonalData extends AppCompatActivity {
             }
         });
 
-        enterPersonalData.setOnClickListener(new View.OnClickListener() {
+        enterPersonalData.setOnClickListener(new View.OnClickListener() {//boton de enviar datos
 
             @Override
             public void onClick(View v) {
@@ -89,10 +107,34 @@ public class enterPersonalData extends AppCompatActivity {
                 if (radioMale.isChecked()) {
                     sexSelected = "masculino";
                 }
+                if (radioOther.isChecked()) {
+                    sexSelected = "Otro";
+                }
+                System.out.println("Nombre= " + nameUser + " Fecha= " + strDate + " Ciudad= " + namePlace + " Sexo= " + sexSelected + " correo= " + correo + " contraseña= " + contrasena);
+                //Toast.makeText(getApplicationContext(),"Datos ingresados correctamente"+correo+" = "+contrasena, Toast.LENGTH_SHORT).show();
 
-                System.out.println("Nombre= " + nameUser + " Fecha= " + strDate + " Ciudad= " + namePlace + " Sexo= " + sexSelected);
-                Toast.makeText(getApplicationContext(),"Datos ingresados correctamente", Toast.LENGTH_SHORT).show();
+                SaveDataOfUser(correo, contrasena, nameUser, strDate, namePlace, sexSelected);
             }
+
+            RegisterDataUser registerDataUser = new RegisterDataUser(correo, contrasena, nameUser, strDate, namePlace, sexSelected);
         });
     }
-}
+
+    public  void SaveDataOfUser(String correo, String contrasena, String nameUser, String strDate, String namePlace, String sexSelected){
+        RegisterDataUser registerDataUser = new RegisterDataUser(correo, contrasena, nameUser, strDate, namePlace, sexSelected);
+        if(auth.getCurrentUser()!=null){    //si el usuario no ees null, guarde eso en base datoss
+            myRef.child(auth.getCurrentUser().getUid()).setValue(registerDataUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(getApplicationContext(),"se ha guardado correctamente", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(),"No se ha guardado", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+    }
+}//36:00

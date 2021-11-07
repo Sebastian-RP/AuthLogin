@@ -55,19 +55,23 @@ public class RegistrarseActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                //Log.d(TAG, "signInWithEmail:success");
                                 Toast.makeText(getApplicationContext(), "Usuario ingrese los siguientes datos.", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
+
                                 Intent i = new Intent(getApplicationContext(), enterPersonalData.class);
                                 startActivity(i);
+
+                                Intent intent = new Intent(RegistrarseActivity.this, enterPersonalData.class);//enviamos los valores de contrasena y correo a enterPersonaData
+                                intent.putExtra("keyCorreo", correo.getText().toString());
+                                intent.putExtra("keyContrasena", contrasena.getText().toString());
+                                startActivity(intent);
+
                                 //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                //Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 //updateUI(null);
                             }
-
                         }
                     });
 
