@@ -56,7 +56,7 @@
             android:id="@+id/testData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="prueba Data" />
+            android:text="prueba mostrar perfil" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

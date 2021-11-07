@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         testGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, enterPersonalData.class);
+                Intent i = new Intent(MainActivity.this, showInfoUser.class);
                 startActivity(i);
             }
         });

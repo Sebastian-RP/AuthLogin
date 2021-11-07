@@ -42,7 +42,7 @@ public class enterPersonalData extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     FirebaseAuth auth;
-    RadioButton radioMale, radioFemale, radioOther; //botonredondo de sexo
+    RadioButton radioMale, radioFemale, radioOther; //boton redondo de sexo
 
     private int dia, mes, anio;
     Button enterPersonalData;
@@ -87,7 +87,7 @@ public class enterPersonalData extends AppCompatActivity {
 
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         strDate = format.format(calendar.getTime());
-                        tvfecha.setText(strDate); //variable donde se almacenr la fecha seleccionada
+                        tvfecha.setText(strDate); //variable donde se almacena la fecha seleccionada
                     }
                 }, anio, mes, dia);//esta sera la fecha mostrada en el calendario al desplegarse, la cual es la actual
                 datePickerDialog.show();
@@ -117,16 +117,31 @@ public class enterPersonalData extends AppCompatActivity {
             }
 
             RegisterDataUser registerDataUser = new RegisterDataUser(correo, contrasena, nameUser, strDate, namePlace, sexSelected);
+
         });
     }
 
     public  void SaveDataOfUser(String correo, String contrasena, String nameUser, String strDate, String namePlace, String sexSelected){
         RegisterDataUser registerDataUser = new RegisterDataUser(correo, contrasena, nameUser, strDate, namePlace, sexSelected);
-        if(auth.getCurrentUser()!=null){    //si el usuario no ees null, guarde eso en base datoss
+
+
+
+        if(auth.getCurrentUser()!=null){    //si el usuario no es null, guarde eso en base datos
             myRef.child(auth.getCurrentUser().getUid()).setValue(registerDataUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(getApplicationContext(),"se ha guardado correctamente", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(enterPersonalData.this, showInfoUser.class);//enviamos los valores de las variables a showInfoUser
+                    intent.putExtra("keyNombreToShow", nameUser);
+                    intent.putExtra("keyCorreoToShow", correo);
+                    intent.putExtra("keyFechaToShow", strDate);
+                    intent.putExtra("keyCiudadToShow", namePlace);
+                    startActivity(intent);
+
+                   //Intent i = new Intent(enterPersonalData.this, showInfoUser.class);
+                    //startActivity(i);
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -137,4 +152,4 @@ public class enterPersonalData extends AppCompatActivity {
         }
 
     }
-}//36:00
+}
