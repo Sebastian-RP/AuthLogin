@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".WatchProfile"
+            android:exported="false" />
+        <activity
+            android:name=".testModelo"
+            android:exported="false" />
+        <activity
             android:name=".showInfoUser"
             android:exported="false" />
         <activity

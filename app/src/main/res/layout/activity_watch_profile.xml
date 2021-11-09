@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".showInfoUser">
+    tools:context=".WatchProfile">
 
     <LinearLayout
         android:layout_width="303dp"
@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/profile_image" />
 
         <TextView
-            android:id="@+id/name_profile"
+            android:id="@+id/name_profile2"
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:text="Aca debe ir el nombre"
@@ -43,11 +43,11 @@
                 app:srcCompat="@android:drawable/sym_action_email" />
 
             <TextView
-                android:id="@+id/email_profile"
+                android:id="@+id/email_profile2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
-                android:gravity="center"
+                android:gravity="center|left"
                 android:text="aca debe ir el correo" />
         </LinearLayout>
 
@@ -62,16 +62,15 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
                 android:layout_weight="2"
                 app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
             <TextView
-                android:id="@+id/date_profile"
+                android:id="@+id/date_profile2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:gravity="center"
+                android:gravity="center|left"
                 android:text="aca debe ir la fecha" />
         </LinearLayout>
 
@@ -85,25 +84,19 @@
                 android:id="@+id/imageView4"
                 android:layout_width="43dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
                 android:layout_weight="2"
                 app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
             <TextView
-                android:id="@+id/country_profile"
+                android:id="@+id/country_profile2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
-                android:gravity="center"
+                android:gravity="center|left"
                 android:text="Aca debe ir laa ciudad" />
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/btn_go_home"
-            android:layout_width="85dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            app:srcCompat="@drawable/home" />
     </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,10 +51,23 @@ public class IniciarSesionActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(i);
-                            Toast.makeText(getApplicationContext(), "Authentication work fine.",
-                                    Toast.LENGTH_SHORT).show();
+
+                            String nombre3 = getIntent().getStringExtra("keyNombreToShow2");//valores de variables traidos enterPersonalData(delete)
+                            String correo3 = getIntent().getStringExtra("keyCorreoToShow2");
+                            String fecha3 = getIntent().getStringExtra("keyFechaToShow2");
+                            String ciudad3 = getIntent().getStringExtra("keyCiudadToShow2");
+
+                            Intent intent = new Intent(IniciarSesionActivity.this, mainMenu.class);//enviamos los valores de las variables a menu
+                            intent.putExtra("keyNombreToShow3", nombre3);
+                            intent.putExtra("keyCorreoToShow3", correo3);
+                            intent.putExtra("keyFechaToShow3", fecha3);
+                            intent.putExtra("keyCiudadToShow3", ciudad3);
+                            startActivity(intent);
+
+                            System.out.println("Nombre de usuario = " +nombre3+correo3+fecha3+ciudad3+" y no pierdas de vista el fuego y la luz");
+                            //Intent i = new Intent(getApplicationContext(), mainMenu.class);
+                            //startActivity(i);
+                            Toast.makeText(getApplicationContext(), "Authentication work fine.", Toast.LENGTH_SHORT).show();
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -66,4 +79,4 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 });
 
     }
-}
+}//hastaa aca ya llegan los datos, lo siguient es neviarlos al siguiente activity. menu y luego profile

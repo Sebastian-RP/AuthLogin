@@ -139,8 +139,8 @@ public class enterPersonalData extends AppCompatActivity {
                     intent.putExtra("keyCiudadToShow", namePlace);
                     startActivity(intent);
 
-                   //Intent i = new Intent(enterPersonalData.this, showInfoUser.class);
-                    //startActivity(i);
+                   //Intent i = new Intent(enterPersonalData.this, testModelo.class);
+                   //startActivity(i);
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -152,4 +152,4 @@ public class enterPersonalData extends AppCompatActivity {
         }
 
     }
-}
+}//igual mostrar el perfil, volveos y en perfil invocamos de nuevo el perfil
