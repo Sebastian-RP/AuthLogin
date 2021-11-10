@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".MainAlarm"
+            android:exported="false" />
+        <activity
             android:name=".WatchProfile"
             android:exported="false" />
         <activity

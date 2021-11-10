@@ -42,5 +42,11 @@
                 android:text="aca el nombre de usuario"
                 android:textSize="16dp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_go_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asigne la hora de alarma" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
