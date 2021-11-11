@@ -18,9 +18,6 @@
             android:name=".WatchProfile"
             android:exported="false" />
         <activity
-            android:name=".testModelo"
-            android:exported="false" />
-        <activity
             android:name=".showInfoUser"
             android:exported="false" />
         <activity

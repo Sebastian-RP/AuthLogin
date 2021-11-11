@@ -4,25 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/helpill2"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="304dp"
-        android:layout_height="402dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="311dp"
+        android:layout_height="415dp"
+        android:layout_marginTop="144dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,7 +23,11 @@
             android:id="@+id/iniciarSesionPantalla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:background="@drawable/btn_registrarse"
+            android:backgroundTint="@color/colorPrincipalApp"
             android:onClick="irIniciar"
             android:text="@string/btn_iniciar_pantalla" />
 
@@ -38,25 +35,47 @@
             android:id="@+id/registrarPantalla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
             android:layout_weight="1"
+            android:background="@drawable/btn_registrarse"
+            android:backgroundTint="@color/colorPrincipalApp"
             android:onClick="irRegistrarse"
             android:text="@string/btn_registrar_pantalla" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="261dp"
-        android:layout_height="191dp"
+        android:layout_width="311dp"
+        android:layout_height="89dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="HELPILL"
+            android:textSize="39sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="308dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:text="Ayuda"
+        android:textColor="#198068"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <Button
-            android:id="@+id/testData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="prueba mostrar perfil" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

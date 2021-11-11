@@ -24,7 +24,7 @@ public class showInfoUser extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     FirebaseAuth auth;
-    private ImageView btnGoHome;
+    private Button btnGoHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +45,12 @@ public class showInfoUser extends AppCompatActivity {
 
         System.out.println("nombre ="+nombre1+" Correo= "+correo1+" Fecha = "+fecha1+"ciudad = "+ciudad1);
 
-        nameProfile.setText(nombre1);
+        nameProfile.setText(nombre1);//datos que llegan para mostrarse
         emailProfile.setText(correo1);
         dateProfile.setText(fecha1);
         countryProfile.setText(ciudad1);
 
-        btnGoHome=(ImageView) findViewById(R.id.btn_go_home);
+        btnGoHome=(Button) findViewById(R.id.btn_go_home);
 
         btnGoHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,34 +66,6 @@ public class showInfoUser extends AppCompatActivity {
                 //startActivity(i);
             }
         });
-
-        /*myRef.child(auth.getCurrentUser().getUid()).child("correoPersonal").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                RegisterDataUser registerDataUsertemporal = dataSnapshot.getValue(RegisterDataUser.class);
-                if(registerDataUsertemporal!=null){
-                    System.out.println("nombre ="+nombre+" Correo= "+correo+" Fecha = "+fecha+"ciudad = "+ciudad);
-
-                }else{
-                    String emailFromDb = dataSnapshot.child("correoPersonal").getValue().toString();
-                    String nameFromDb = dataSnapshot.child("nombreCompleto").getValue().toString();
-                    String dateFromDb = dataSnapshot.child("fechaNacimiento").getValue().toString();
-                    String countryFromDb = dataSnapshot.child("ciudadActual").getValue().toString();
-
-                    nameProfile.setText(nameFromDb);
-                    emailProfile.setText(emailFromDb);
-                    dateProfile.setText(dateFromDb);
-                    countryProfile.setText(countryFromDb);
-                    System.out.println("nombre2 ="+nombre+" Correo2= "+correo+" Fecha = "+fecha+"ciudad = "+ciudad);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Fallo leer los datos", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
 
     }
 }

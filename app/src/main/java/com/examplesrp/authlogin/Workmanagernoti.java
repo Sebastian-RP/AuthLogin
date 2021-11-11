@@ -34,6 +34,11 @@ public class Workmanagernoti extends Worker {
         instance.enqueue(noti);
     }
 
+    public void eliminarNoti(){
+        WorkManager instance = WorkManager.getInstance();
+        WorkManager.getInstance(getApplicationContext()).cancelAllWorkByTag("tag1");
+    }
+
     @NonNull
     @Override
     public Result doWork(){
@@ -79,6 +84,5 @@ public class Workmanagernoti extends Worker {
         assert nm != null;
         nm.notify(idNotify, builder.build());
     }
-
 
 }

@@ -3,42 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_gradient_signin"
     android:layout_height="match_parent"
     tools:context=".IniciarSesionActivity">
 
     <LinearLayout
         android:layout_width="297dp"
         android:layout_height="633dp"
-        android:gravity="center"
+        android:gravity="top"
         android:orientation="vertical"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginBottom="60dp"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+
         <EditText
             android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/white"
             android:ems="10"
-            android:hint="email"
+            android:hint="Correo"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/contrasena"
+            android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/white"
             android:ems="10"
-            android:hint="contraseña"
-            android:inputType="textPassword"
-            android:layout_width="match_parent" />
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/iniciarSesionBTN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="iniciarSesion"
-            android:text="@string/btn_iniciar_sesion" />
+            android:text="@string/btn_iniciar_sesion"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/btn_registrarse"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

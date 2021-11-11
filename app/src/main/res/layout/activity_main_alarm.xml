@@ -8,17 +8,26 @@
     android:orientation="vertical"
     tools:context=".MainAlarm">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="410dp"
-        android:layout_height="63dp"
-        android:layout_weight="12"
-        android:background="#2F6E6E6E"
-        android:gravity="center"
-        android:text="Elija la fecha y hora del medicamento"
-        android:textSize="17dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="410dp"
+                android:layout_height="63dp"
+                android:layout_weight="12"
+                android:background="#2F6E6E6E"
+                android:gravity="center_vertical"
+                android:text="Alarma"
+                android:textSize="26sp" />
+
+            <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:orientation="horizontal">
@@ -38,10 +47,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#0DBA8A"
             android:padding="10dp"
             android:text="Seleccionar fecha"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:background="@drawable/btn_round_mainmenu"
+            android:backgroundTint="@color/colorPrincipalApp"/>
 
     </LinearLayout>
 
@@ -65,21 +75,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#0DBA8A"
             android:padding="10dp"
             android:text="Seleccionar hora"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:background="@drawable/btn_round_mainmenu"
+            android:backgroundTint="@color/colorPrincipalApp"/>
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/name_pill"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_weight="12"
+        android:ems="10"
+        android:hint="Nombre del medicamento"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btn_guardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2F2842"
         android:text="Guardar notificacion"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:background="@drawable/btn_registrarse"
+        android:backgroundTint="@color/colorPrincipalApp"/>
 
-    <Button
+
+    <!--<Button
         android:id="@+id/btn_eliminar"
         android:layout_width="372dp"
         android:layout_height="wrap_content"
@@ -87,10 +109,24 @@
         android:background="#2F2842"
         android:text="eliminar alarma"
         android:textColor="#fff" />
+        -->
 
-    <ListView
-        android:id="@+id/lista_elementos"
+            <ListView
+                android:id="@+id/lista_elementos"
+                android:layout_width="match_parent"
+                android:layout_height="264dp"
+                android:foregroundGravity="center"
+                android:background="#e9fbf7"></ListView>
+
+            <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="322dp"></ListView>
+        android:layout_height="match_parent"
+        android:layout_weight="12"
+        android:orientation="vertical">
+
+    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
+

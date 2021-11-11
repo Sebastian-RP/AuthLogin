@@ -139,9 +139,6 @@ public class enterPersonalData extends AppCompatActivity {
                     intent.putExtra("keyCiudadToShow", namePlace);
                     startActivity(intent);
 
-                   //Intent i = new Intent(enterPersonalData.this, testModelo.class);
-                   //startActivity(i);
-
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -152,4 +149,4 @@ public class enterPersonalData extends AppCompatActivity {
         }
 
     }
-}//igual mostrar el perfil, volveos y en perfil invocamos de nuevo el perfil
+}//igual mostrar el perfil, volvemos y en perfil invocamos de nuevo el perfil

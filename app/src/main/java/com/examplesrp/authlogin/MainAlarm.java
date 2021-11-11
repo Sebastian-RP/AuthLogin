@@ -9,6 +9,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ListView;
@@ -30,7 +31,7 @@ import java.util.UUID;
 public class MainAlarm extends AppCompatActivity {
 
     Button selefecha, selehora;
-    TextView tvfecha, tvhora;
+    TextView tvfecha, tvhora, namePill;
     Button guardar, btn_eliminar;
 
     Calendar actual = Calendar.getInstance();
@@ -53,7 +54,8 @@ public class MainAlarm extends AppCompatActivity {
         selehora = findViewById(R.id.btn_selehora);
         tvhora = findViewById(R.id.tv_hora);
         guardar = findViewById(R.id.btn_guardar);
-        btn_eliminar = findViewById(R.id.btn_eliminar);
+        //btn_eliminar = findViewById(R.id.btn_eliminar);//boton eliminar alarmas
+        namePill = findViewById(R.id.name_pill);
 
         lista = findViewById(R.id.lista_elementos);
         items = new ArrayList<>();
@@ -118,19 +120,14 @@ public class MainAlarm extends AppCompatActivity {
 
                 System.out.println("fecha = "+strDate+" hora = " + bringDate);
 
-                items.add(" Fecha = "+strDate+" Hora = "+ bringDate);
+                items.add( namePill.getText()+ "\n" +strDate+" - "+ bringDate);
                 ADP.notifyDataSetChanged();
 
                 Toast.makeText(MainAlarm.this, "Alarma guardada", Toast.LENGTH_SHORT).show();
             }
         });
-        btn_eliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EliminarNoti("tag1");
-            }
-        });
 
+        DeleteAlarm();
 
     }
 
@@ -149,5 +146,19 @@ public class MainAlarm extends AppCompatActivity {
                 .putString("titulo", titulo)
                 .putString("detaller", detalle)
                 .putInt("id_noti", id_noti).build();
+    }
+
+    private void DeleteAlarm(){
+        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                items.remove(position);
+
+                ADP.notifyDataSetChanged();
+                WorkManager.getInstance(getApplicationContext()).cancelAllWorkByTag("tag1");
+                Toast.makeText(MainAlarm.this, "Alarma eliminada.", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 }

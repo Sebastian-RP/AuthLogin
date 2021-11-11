@@ -29,7 +29,7 @@ public class mainMenu extends AppCompatActivity {
         String ciudad4 = getIntent().getStringExtra("keyCiudadToShow3");
 
         textProfileMenu = (TextView) findViewById(R.id.text_profile_menu);
-        textProfileMenu.setText(nombre4);
+        textProfileMenu.setText(nombre4);//se agrega el nombre en la parte superior
 
         profileIconMenu.setOnClickListener(new View.OnClickListener() {
             @Override

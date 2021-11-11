@@ -15,17 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        testGo=(Button)findViewById(R.id.testData);
-
-        testGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, testModelo.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     public void irIniciar(View view){
@@ -43,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("keyCiudadToShow2", ciudad2);
         startActivity(intent);
 
-        //Intent i = new Intent(this, IniciarSesionActivity.class);
-        //startActivity(i);
     }
 
     public void irRegistrarse(View view){
